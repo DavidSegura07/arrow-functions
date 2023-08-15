@@ -182,23 +182,13 @@ let joe = new Student('Joe Schmoe', 100, 'Anytown, USA');
 console.log(joe);
 
 // TODO: After viewing the previous console.log(), return the code to a working state.
-const newStudent = (name, age, hometown) => ({
-  name: name[0],
-  age: age[1],
-  hometown: hometown[2]
-});
-
-const david = new newStudent('David Schmoe', 100, 'Anytown, USA');
-
-console.log('New Student function', david);
-
-Student.prototype.greeting = function() {
-  return `Hi, my name is ${this.name}`;
-};
+Student.prototype.greeting = function () { 
+  return `Hey there ${this.name}`};
+ 
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 // Note that the arrow function will cause this method to break!
-// console.log(joe.greeting());
+console.log(joe.greeting());
 
 // TODO: After viewing the previous console.log(), return the code to a working state.
 
@@ -209,7 +199,7 @@ Student.courseName = function() {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(Student.courseName());
+console.log(Student.courseName());
 
 
 
@@ -220,17 +210,19 @@ Student.prototype.scope = function() {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// joe.scope();
+console.log(joe.scope());
 
 Student.prototype.scopeArrow = () => console.log(this);
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// joe.scopeArrow();
+joe.scopeArrow();
 
 // TODO: Write a COMMENT below to answer the following questions.
 // 1. What is "this" when joe.scope() is invoked?
-//
+// "This" is the object that is created when the Student.prototype function is called.
+
 // 2. What is "this" when joe.scopeArrow() is invoked?
-//
+// When joe.scopeArrow is invoked, "this" refers to the Window.console property, which returns a reference to the console object, which provides methods for logging information to the browser's console. These methods are intended for debugging purposes only and should not be relied on for presenting information to end users.
+
 // 3. Explain why "this" is different when an arrow function is used.
-//
+//Arrow functions don't have their own this. They inherit it from the surrounding non-arrow function where they are defined.
